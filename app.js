@@ -20,21 +20,25 @@ const ITEMS = [
 ];
 const grid = document.getElementById('grid');
 function renderBase(cat){
- grid.innerHTML = ITEMS.filter(i=>cat==='todos'||i.c===cat).map(i=>`
- <article class="card-dark rounded-2xl p-6 flex flex-col justify-between hover:-translate-y-1 transition">
- <div><div class="flex justify-between gap-3"><h3 class="font-price text-lg">${i.t}</h3><span class="font-price text-lg text-chamoy whitespace-nowrap">${i.p}</span></div>
- <p class="text-[13px] text-crema/60 mt-2">${i.d}</p></div>
- <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between">
- <span class="text-[11px] px-2.5 py-1 rounded bg-chamoy/15 text-chamoy font-bold">${i.tag}</span>
- <a class="text-sm font-bold text-crema hover:text-chamoy" target="_blank" rel="noopener" href="${WA}Hola%20Frejolito%2C%20${i.m}">Pedir →</a>
+ const list = ITEMS.filter(i=>i.c===cat);
+ grid.innerHTML = list.map((i,n)=>`
+ <article class="menu-row group flex items-baseline gap-4 sm:gap-6 py-6 sm:py-7">
+ <span class="menu-num shrink-0 w-7">${String(n+1).padStart(2,'0')}</span>
+ <div class="flex-1 min-w-0">
+ <h3 class="font-menu text-2xl sm:text-[32px] leading-tight group-hover:translate-x-1 transition-transform">${i.t}</h3>
+ <p class="text-[13px] sm:text-sm text-crema/55 mt-1">${i.d}</p>
+ </div>
+ <div class="shrink-0 text-right">
+ <p class="font-price text-lg text-mango whitespace-nowrap">${i.p}</p>
+ <a class="menu-link text-[13px] font-bold text-crema/80 hover:text-chamoyl inline-block px-3 py-2.5 -mr-3" target="_blank" rel="noopener" href="${WA}Hola%20Frejolito%2C%20${i.m}">Pedir &#8599;</a>
  </div></article>`).join('');
- if(window.gsap) gsap.fromTo('#grid article',{y:22,opacity:0},{y:0,opacity:1,duration:.5,stagger:.05,ease:'power2.out',overwrite:true});
+ if(window.gsap) gsap.fromTo('#grid article',{y:18,opacity:0},{y:0,opacity:1,duration:.45,stagger:.06,ease:'power2.out',overwrite:true});
 }
 function render(cat){
  renderBase(cat);
  if(window.ScrollTrigger) requestAnimationFrame(()=>ScrollTrigger.refresh());
 }
-render('todos');
+render('tacos');
 document.querySelectorAll('#tabs button').forEach(b=>b.addEventListener('click',()=>{
  document.querySelectorAll('#tabs button').forEach(x=>x.classList.remove('tab-active'));
  b.classList.add('tab-active'); render(b.dataset.cat);
@@ -59,6 +63,15 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
  const id=a.getAttribute('href'); if(id.length>1){e.preventDefault(); const el=document.querySelector(id); if(!el) return;
  if(lenis) lenis.scrollTo(el,{offset:-64,duration:1.2}); else el.scrollIntoView({behavior:'smooth'});}
 }));
+// si la URL trae hash (#carta), saltar tras el layout
+if(location.hash){
+ const target=document.querySelector(location.hash);
+ if(target){
+  const go=()=>{ if(lenis) lenis.scrollTo(target,{offset:-64,immediate:true}); else target.scrollIntoView(); };
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(()=>setTimeout(go,200));
+  else setTimeout(go,500);
+ }
+}
 // refrescar triggers cuando cargan imgs y al filtrar carta
 addEventListener('load',()=>{ if(window.ScrollTrigger) ScrollTrigger.refresh(); });
 try{

@@ -55,20 +55,22 @@ No usar azul para botones ni texto.
 
 - **Display:** `Rye` (Google Fonts) — la del logo (`logo con letra.png`, estilo western mexicano). Títulos, hero, secciones.
 - **Precios / destacados:** `Lilita One` — números y precios, más legible que Rye.
+- **Carta (filas):** `Cormorant Garamond` — nombres de platos en serif elegante con numeración y línea separadora.
 - **Cuerpo:** `Plus Jakarta Sans` (Google Fonts) — párrafos, carta, botones.
 - **Logo:** `logo.png` circular (calavera con sombrero) en nav (ring rojo), hero central, footer y favicon. `logo con letra.png` es la referencia del lockup horizontal sobre rojo.
 
 ## 5. Estructura de la página (v1 vitrina)
 
-1. **Nav sticky blur:** logo EL FREJOLITO + links Tienda / Platos / Carta / Visítanos + botón WhatsApp.
+1. **Nav sticky blur:** logo EL FREJOLITO + links Tienda / Platos / Carta / Opiniones / Visítanos + botón WhatsApp.
 2. **Hero noche:** bg `local.jpg` + overlay `linear-gradient(#161110CC, #16111066)` + titular “Sabor mexicano en Pucallpa” + subtítulo birria/chamoyadas + marquee TACOS - BIRRIA - QUESADILLAS - CHAMOYADAS + CTAs Ver carta / Pedir por WhatsApp.
 3. **La tienda:** foto interior + papel picado SVG divider + historia corta + 3 bullets: Hecho al momento / Picante real / Mié-Lun 6-10pm.
 4. **Platos estrella (3):** Tacos Birria 3x S/28 (`taco bel.jpg`), Tacos Bell 3x S/20 (`varios platos...jpg`), Chamoyada Mango (`chamoyada.jpg`). Card ovalada con hover zoom, etiqueta picor.
 5. **Carta completa con tabs:** Tacos / Quesadillas-Nachos-Taquitos-Burritos / Alitas / Chamoyadas-Frappes / Bebidas-Gaseosas-Cerveza / Calientes / Dulces. Datos de `carta.jpeg` abajo.
 6. **Dulces mexicanos strip horizontal:** de `FREJOLITO_dulces.pdf` + foto anaquel si hay. Con nivel picor 1-3.
 7. **Opiniones Google Maps:** 3 cards reseñas + link “Ver en Maps”.
+7. **Opiniones Google Maps:** 3 reseñas reales (Cristhian Pezo 4★, Florent Buffière 5★, osmar salguero 5★) con inicial, estrellas y link a Maps.
 8. **Visítanos:** dirección + horario + mapa embed + foto fachada noche + mototaxis (contexto Pucallpa).
-9. **Footer negro + botón flotante WA.**
+9. **Cierre + footer estilo Arko:** titular serif centrado “Te esperamos en La Unión con Alamedas”, pill WhatsApp, motivo de círculos concéntricos y footer en 4 columnas (marca, visítanos, horario, contacto) con barra inferior.
 
 Animaciones (GSAP + Lenis como midudev):
 - Lenis smooth scroll, header compacto al scroll.

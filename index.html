@@ -7,14 +7,14 @@
 <meta name="description" content="El Frejolito, restaurante mexicano en Pucallpa. Tacos birria, quesadillas, chamoyadas y dulces mexicanos. Mié a Lun 6-10pm. Pide por WhatsApp."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="icon" type="image/png" href="./logo.png"/>
-<link href="https://fonts.googleapis.com/css2?family=Rye&family=Lilita+One&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rye&family=Lilita+One&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
 tailwind.config = {
   theme: { extend: {
     colors: {
       crema:'#FDF3DC', noche:'#0E0B0A', carbon:'#161110', card:'#1B1412',
-      chamoy:'#D91E2A', birria:'#8C1D18', mango:'#FFB627', guac:'#5A9A3B', lena:'#6B4226', wa:'#25D366'
+      chamoy:'#D91E2A', chamoyl:'#FF7A7A', birria:'#8C1D18', mango:'#FFB627', guac:'#5A9A3B', lena:'#6B4226', wa:'#25D366'
     },
     fontFamily: { display:['Rye','"Lilita One"','system-ui'], price:['"Lilita One"','system-ui'], body:['"Plus Jakarta Sans"','system-ui'] }
   }}}
@@ -23,6 +23,7 @@ tailwind.config = {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <link rel="stylesheet" href="./styles.css"/>
+<noscript><style>[data-reveal]{opacity:1!important;transform:none!important}.hero-img{transform:none!important}</style></noscript>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Restaurant","name":"El Frejolito - Restaurante Mexicano","servesCuisine":"Mexicana","telephone":"+51907318885","address":{"@type":"PostalAddress","streetAddress":"Última cuadra de La Unión con Alamedas, al costado de Borrachitas Restobar","addressLocality":"Pucallpa","addressRegion":"Ucayali","addressCountry":"PE"},"openingHours":"Mo,We,Th,Fr,Sa,Su 18:00-22:00","hasMap":"https://maps.app.goo.gl/ANJeAQ7se5evK2Cr7"}
 </script>
@@ -41,9 +42,10 @@ tailwind.config = {
 <a href="#la-tienda" class="hover:text-crema">Tienda</a>
 <a href="#platos" class="hover:text-crema">Platos</a>
 <a href="#carta" class="hover:text-crema">Carta</a>
+<a href="#opiniones" class="hover:text-crema">Opiniones</a>
 <a href="#visitanos" class="hover:text-crema">Visítanos</a>
 </nav>
-<a href="https://wa.me/51907318885?text=Hola%20Frejolito%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener" class="px-5 py-2.5 rounded-full bg-chamoy hover:bg-birria text-white text-sm font-bold transition">Pedir por WhatsApp</a>
+<a href="https://wa.me/51907318885?text=Hola%20Frejolito%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener" class="px-5 py-3 min-h-[44px] inline-flex items-center rounded-full bg-chamoy hover:bg-birria text-white text-sm font-bold transition">Pedir por WhatsApp</a>
 </div>
 </div>
 </header>
@@ -52,7 +54,7 @@ tailwind.config = {
 <!-- HERO fullscreen estilo Arko ScrollWorld -->
 <section class="relative min-h-[100svh] flex flex-col justify-end overflow-hidden">
 <div class="absolute inset-0">
-<img src="./local.jpg" alt="Fachada El Frejolito de noche en Pucallpa" class="hero-img w-full h-full object-cover"/>
+<img src="./local.jpg" alt="Fachada El Frejolito de noche en Pucallpa" width="1600" height="1200" fetchpriority="high" decoding="async" class="hero-img w-full h-full object-cover"/>
 <div class="absolute inset-0 bg-gradient-to-t from-noche via-noche/70 to-noche/40"></div>
 <div class="absolute inset-0 vignette"></div>
 <div class="absolute inset-0 bg-chamoy/10 mix-blend-overlay"></div>
@@ -87,7 +89,7 @@ tailwind.config = {
 <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-10 items-center">
 <div data-reveal class="lg:col-span-5 relative">
 <div class="rounded-3xl overflow-hidden card-dark shadow-2xl">
-<img src="./local.jpg" alt="Interior El Frejolito con banderines" class="w-full h-[440px] object-cover hover:scale-105 transition duration-700"/>
+<img src="./local.jpg" alt="Interior El Frejolito con banderines" width="1600" height="1200" loading="lazy" decoding="async" class="w-full h-[440px] object-cover hover:scale-105 transition duration-700"/>
 <div class="absolute inset-0 bg-gradient-to-t from-noche/90 via-transparent to-transparent pointer-events-none"></div>
 <div class="absolute bottom-5 left-5 right-5 glass border border-white/10 rounded-2xl p-4">
 <p class="text-[11px] font-bold tracking-widest uppercase text-mango">Nuestra esquina</p>
@@ -98,11 +100,11 @@ tailwind.config = {
 <div class="absolute -top-3 -right-3 bg-guac text-white text-xs font-bold px-4 py-2 rounded-2xl rotate-3 shadow-lg">100% Auténtico</div>
 </div>
 <div class="lg:col-span-7">
-<div data-reveal class="flex items-center gap-2 mb-3"><span class="w-8 h-1 bg-chamoy rounded-full"></span><span class="text-[11px] font-bold tracking-widest uppercase text-chamoy">Nuestra esencia</span></div>
+<div data-reveal class="flex items-center gap-2 mb-3"><span class="w-8 h-1 bg-chamoy rounded-full"></span><span class="text-[11px] font-bold tracking-widest uppercase text-chamoyl">Nuestra esencia</span></div>
 <h2 data-reveal class="font-display text-4xl sm:text-5xl leading-tight">Picante, ahumado y real.<br/><span class="text-crema/50">Como puesto taquero.</span></h2>
-<p data-reveal class="mt-4 text-crema/75 leading-relaxed">Comida mexicanan en Pucallpa. Todo se prepara al instante: birria suavecita, tortilla bien servida y chamoyada helada para la noche calurosa.</p>
+<p data-reveal class="mt-4 text-crema/75 leading-relaxed">Comida mexicana en Pucallpa. Todo se prepara al instante: birria suavecita, tortilla bien servida y chamoyada helada para la noche calurosa.</p>
 <div class="mt-7 grid sm:grid-cols-3 gap-4">
-<div data-reveal class="card-dark rounded-2xl p-5"><p class="font-display text-lg text-chamoy">Hecho al momento</p><p class="text-sm text-crema/65 mt-1">Tortillas doradas y carne deshebrada al fuego.</p></div>
+<div data-reveal class="card-dark rounded-2xl p-5"><p class="font-display text-lg text-chamoyl">Hecho al momento</p><p class="text-sm text-crema/65 mt-1">Tortillas doradas y carne deshebrada al fuego.</p></div>
 <div data-reveal class="card-dark rounded-2xl p-5"><p class="font-display text-lg text-mango">Picante real</p><p class="text-sm text-crema/65 mt-1">Tajín, salsa roja de casa y chamoy auténtico.</p></div>
 <div data-reveal class="card-dark rounded-2xl p-5"><p class="font-display text-lg text-guac">Horario nocturno</p><p class="text-sm text-crema/65 mt-1">Mié a Lun 6pm – 10pm. Martes cerrado.</p></div>
 </div>
@@ -113,29 +115,29 @@ tailwind.config = {
 <!-- FAVORITOS -->
 <section id="platos" class="py-20 px-5 lg:px-10 bg-carbon/60 border-y border-white/5">
 <div class="max-w-7xl mx-auto text-center">
-<p data-reveal class="text-[11px] font-bold tracking-widest uppercase text-chamoy">Los más pedidos</p>
+<p data-reveal class="text-[11px] font-bold tracking-widest uppercase text-chamoyl">Los más pedidos</p>
 <h2 data-reveal class="font-display text-4xl sm:text-5xl mt-1">Favoritos de la casa</h2>
 <div class="mt-10 grid md:grid-cols-3 gap-6 text-left">
 <article data-reveal class="card-dark rounded-3xl overflow-hidden group">
-<div class="relative h-60 overflow-hidden"><img src="./taco%20bel.jpg" alt="Tacos Birria con consomé" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"/>
+<div class="relative h-60 overflow-hidden"><img src="./taco%20bel.jpg" alt="Tacos Birria con consomé" width="960" height="1280" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"/>
 <span class="absolute top-3 left-3 bg-chamoy text-white text-[11px] font-bold uppercase px-3 py-1.5 rounded-full">Top #1</span></div>
-<div class="p-6"><div class="flex justify-between gap-2"><h3 class="font-display text-xl">Tacos Birria</h3><span class="font-price text-xl text-chamoy">3x S/28</span></div>
+<div class="p-6"><div class="flex justify-between gap-2"><h3 class="font-display text-xl">Tacos Birria</h3><span class="font-price text-xl text-mango">3x S/28</span></div>
 <p class="text-sm text-crema/65 mt-2">Carne horneada jugosa, queso fundido, cilantro y consomé calientito. Opción 2x S/14.</p>
-<a class="mt-4 inline-flex items-center gap-1 text-sm font-bold text-crema hover:text-chamoy" target="_blank" rel="noopener" href="https://wa.me/51907318885?text=Hola%20Frejolito%2C%20quiero%20Tacos%20Birria">Pedir →</a></div>
+<a class="mt-4 inline-flex items-center gap-1 text-sm font-bold text-crema hover:text-chamoyl px-3 py-2.5 -ml-3 min-h-[44px]" target="_blank" rel="noopener" href="https://wa.me/51907318885?text=Hola%20Frejolito%2C%20quiero%20Tacos%20Birria">Pedir →</a></div>
 </article>
 <article data-reveal class="card-dark rounded-3xl overflow-hidden group">
-<div class="relative h-60 overflow-hidden"><img src="./chamoyada.jpg" alt="Chamoyada de mango con tajín" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"/>
+<div class="relative h-60 overflow-hidden"><img src="./chamoyada.jpg" alt="Chamoyada de mango con tajín" width="721" height="1600" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"/>
 <span class="absolute top-3 left-3 bg-mango text-noche text-[11px] font-bold uppercase px-3 py-1.5 rounded-full">Artesanal</span></div>
-<div class="p-6"><div class="flex justify-between gap-2"><h3 class="font-display text-xl">Chamoyada Mango</h3><span class="font-price text-xl text-chamoy">S/16–21</span></div>
+<div class="p-6"><div class="flex justify-between gap-2"><h3 class="font-display text-xl">Chamoyada Mango</h3><span class="font-price text-xl text-mango">S/16–21</span></div>
 <p class="text-sm text-crema/65 mt-2">Mango frappé natural, chamoy, tajín, miguelito, gomita y banderilla tarri pop.</p>
-<a class="mt-4 inline-flex items-center gap-1 text-sm font-bold text-crema hover:text-chamoy" target="_blank" rel="noopener" href="https://wa.me/51907318885?text=Hola%20Frejolito%2C%20quiero%20una%20Chamoyada%20de%20Mango">Pedir →</a></div>
+<a class="mt-4 inline-flex items-center gap-1 text-sm font-bold text-crema hover:text-chamoyl px-3 py-2.5 -ml-3 min-h-[44px]" target="_blank" rel="noopener" href="https://wa.me/51907318885?text=Hola%20Frejolito%2C%20quiero%20una%20Chamoyada%20de%20Mango">Pedir →</a></div>
 </article>
 <article data-reveal class="card-dark rounded-3xl overflow-hidden group">
-<div class="relative h-60 overflow-hidden"><img src="./varios%20platos%20en%20taper%20para%20pedidos.jpg" alt="Tacos Bell y quesadillas con guacamole" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"/>
+<div class="relative h-60 overflow-hidden"><img src="./varios%20platos%20en%20taper%20para%20pedidos.jpg" alt="Tacos Bell y quesadillas con guacamole" width="4032" height="3024" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"/>
 <span class="absolute top-3 left-3 bg-guac text-white text-[11px] font-bold uppercase px-3 py-1.5 rounded-full">Para compartir</span></div>
-<div class="p-6"><div class="flex justify-between gap-2"><h3 class="font-display text-xl">Tacos Bell</h3><span class="font-price text-xl text-chamoy">3x S/20</span></div>
+<div class="p-6"><div class="flex justify-between gap-2"><h3 class="font-display text-xl">Tacos Bell</h3><span class="font-price text-xl text-mango">3x S/20</span></div>
 <p class="text-sm text-crema/65 mt-2">Carne o pollo, lechuga, queso y salsa casera + guacamole y crema.</p>
-<a class="mt-4 inline-flex items-center gap-1 text-sm font-bold text-crema hover:text-chamoy" target="_blank" rel="noopener" href="https://wa.me/51907318885?text=Hola%20Frejolito%2C%20quiero%20Tacos%20Bell">Pedir →</a></div>
+<a class="mt-4 inline-flex items-center gap-1 text-sm font-bold text-crema hover:text-chamoyl px-3 py-2.5 -ml-3 min-h-[44px]" target="_blank" rel="noopener" href="https://wa.me/51907318885?text=Hola%20Frejolito%2C%20quiero%20Tacos%20Bell">Pedir →</a></div>
 </article>
 </div>
 </div>
@@ -145,20 +147,60 @@ tailwind.config = {
 <section id="carta" class="py-20 px-5 lg:px-10">
 <div class="max-w-7xl mx-auto">
 <div class="text-center max-w-2xl mx-auto">
-<p data-reveal class="text-[11px] font-bold tracking-widest uppercase text-chamoy">Elige y pide al instante</p>
+<p data-reveal class="text-[11px] font-bold tracking-widest uppercase text-chamoyl">Elige y pide al instante</p>
 <h2 data-reveal class="font-display text-4xl sm:text-5xl">Carta completa</h2>
 <p data-reveal class="text-sm text-crema/60 mt-2">Toca Pedir y se arma tu mensaje de WhatsApp.</p>
 </div>
 <div data-reveal class="mt-8 flex gap-2 overflow-x-auto no-scrollbar pb-2 justify-start lg:justify-center" id="tabs">
-<button data-cat="todos" class="tab-active chip px-5 py-2.5 rounded-full text-sm font-bold whitespace-nowrap bg-card">Todos</button>
-<button data-cat="tacos" class="chip px-5 py-2.5 rounded-full text-sm font-bold whitespace-nowrap bg-card">Tacos</button>
-<button data-cat="quesa" class="chip px-5 py-2.5 rounded-full text-sm font-bold whitespace-nowrap bg-card">Quesadillas · Nachos</button>
-<button data-cat="alitas" class="chip px-5 py-2.5 rounded-full text-sm font-bold whitespace-nowrap bg-card">Alitas</button>
-<button data-cat="bebidas" class="chip px-5 py-2.5 rounded-full text-sm font-bold whitespace-nowrap bg-card">Chamoyadas · Bebidas</button>
-<button data-cat="dulces" class="chip px-5 py-2.5 rounded-full text-sm font-bold whitespace-nowrap bg-card">Dulces</button>
+<button data-cat="tacos" class="tab-active chip px-5 py-3 min-h-[44px] inline-flex items-center rounded-full text-sm font-bold whitespace-nowrap bg-card">Tacos</button>
+<button data-cat="quesa" class="chip px-5 py-3 min-h-[44px] inline-flex items-center rounded-full text-sm font-bold whitespace-nowrap bg-card">Quesadillas · Nachos</button>
+<button data-cat="alitas" class="chip px-5 py-3 min-h-[44px] inline-flex items-center rounded-full text-sm font-bold whitespace-nowrap bg-card">Alitas</button>
+<button data-cat="bebidas" class="chip px-5 py-3 min-h-[44px] inline-flex items-center rounded-full text-sm font-bold whitespace-nowrap bg-card">Chamoyadas · Bebidas</button>
+<button data-cat="dulces" class="chip px-5 py-3 min-h-[44px] inline-flex items-center rounded-full text-sm font-bold whitespace-nowrap bg-card">Dulces</button>
 </div>
-<div id="grid" class="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+<div id="grid" class="mt-6 flex flex-col"></div>
 <p class="mt-6 text-center"><a href="./carta.jpeg" target="_blank" class="text-xs text-crema/50 underline">Ver foto de carta original del local</a></p>
+</div>
+</section>
+
+<!-- OPINIONES -->
+<section id="opiniones" class="py-20 px-5 lg:px-10">
+<div class="max-w-7xl mx-auto text-center">
+<p data-reveal class="text-[11px] font-bold tracking-widest uppercase text-chamoyl">Comunidad Frejolito</p>
+<h2 data-reveal class="font-display text-4xl sm:text-5xl mt-1">Lo que dicen en Google Maps</h2>
+<div class="mt-10 grid md:grid-cols-3 gap-6 text-left">
+<article data-reveal class="card-dark rounded-2xl p-6 flex flex-col justify-between">
+<div>
+<p class="text-mango tracking-widest" role="img" aria-label="4 de 5 estrellas">★★★★<span class="text-crema/25">★</span></p>
+<p class="mt-3 text-[15px] text-crema/80 leading-relaxed">"Buena sorpresa con El Frejolito, calidad/precio super. Recomiendo las quesadillas. Tacos bien."</p>
+</div>
+<div class="mt-6 pt-4 border-t border-white/10 flex items-center gap-3">
+<span class="w-10 h-10 rounded-full bg-chamoy text-white grid place-items-center font-bold text-sm shrink-0" aria-hidden="true">CP</span>
+<div><p class="font-bold text-sm">Cristhian Pezo</p><p class="text-xs text-crema/50">Reseña de Google Maps · hace un año</p></div>
+</div>
+</article>
+<article data-reveal class="card-dark rounded-2xl p-6 flex flex-col justify-between">
+<div>
+<p class="text-mango tracking-widest" role="img" aria-label="5 de 5 estrellas">★★★★★</p>
+<p class="mt-3 text-[15px] text-crema/80 leading-relaxed">"Por fin un restaurante que se sale de lo común en Pucallpa. Con un verdadero sabor mexicano."</p>
+</div>
+<div class="mt-6 pt-4 border-t border-white/10 flex items-center gap-3">
+<span class="w-10 h-10 rounded-full bg-mango text-noche grid place-items-center font-bold text-sm shrink-0" aria-hidden="true">FB</span>
+<div><p class="font-bold text-sm">Florent Buffière</p><p class="text-xs text-crema/50">Cena en el lugar · PEN 20–30</p></div>
+</div>
+</article>
+<article data-reveal class="card-dark rounded-2xl p-6 flex flex-col justify-between">
+<div>
+<p class="text-mango tracking-widest" role="img" aria-label="5 de 5 estrellas">★★★★★</p>
+<p class="mt-3 text-[15px] text-crema/80 leading-relaxed">"Me pareció económico y agradable."</p>
+</div>
+<div class="mt-6 pt-4 border-t border-white/10 flex items-center gap-3">
+<span class="w-10 h-10 rounded-full bg-guac text-white grid place-items-center font-bold text-sm shrink-0" aria-hidden="true">OS</span>
+<div><p class="font-bold text-sm">osmar salguero</p><p class="text-xs text-crema/50">Comida 5/5 · Servicio 5/5 · hace 9 meses</p></div>
+</div>
+</article>
+</div>
+<p class="mt-8"><a href="https://maps.app.goo.gl/ANJeAQ7se5evK2Cr7" target="_blank" rel="noopener" class="text-sm font-bold text-crema/70 hover:text-chamoyl underline underline-offset-4">Ver todas las reseñas en Google Maps ↗</a></p>
 </div>
 </section>
 
@@ -179,7 +221,7 @@ tailwind.config = {
 </div>
 </div>
 <div data-reveal class="rounded-3xl overflow-hidden card-dark">
-<img src="./local.jpg" alt="Fachada El Frejolito noche" class="w-full h-72 object-cover"/>
+<img src="./local.jpg" alt="Fachada El Frejolito noche" width="1600" height="1200" loading="lazy" decoding="async" class="w-full h-72 object-cover"/>
 <div class="p-5 flex items-center justify-between">
 <div><p class="font-display text-lg">El Frejolito Pucallpa</p><p class="text-xs text-mango">La Unión con Alamedas</p></div>
 <span class="text-[11px] font-bold px-3 py-1.5 rounded-full bg-wa text-noche">● Hoy 6–10pm</span>
@@ -188,27 +230,59 @@ tailwind.config = {
 </div>
 </section>
 
-<!-- CTA FINAL rojo -->
-<section class="relative overflow-hidden bg-gradient-to-br from-chamoy via-birria to-noche px-5 lg:px-10 py-16">
-<div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
-<div>
-<p class="text-[11px] font-bold tracking-widest uppercase text-mango">Calma el antojo ahora</p>
-<h2 class="font-display text-4xl sm:text-5xl text-white">¿Tacos o chamoyada heladita?</h2>
-<p class="text-white/80 text-sm mt-2">Te lo preparamos al instante y te lo enviamos calientito.</p>
+<!-- CIERRE -->
+<section class="relative overflow-hidden bg-carbon/40 px-5 lg:px-10 pt-24 pb-20 text-center">
+<svg class="absolute -right-48 top-1/2 -translate-y-1/2 w-[560px] h-[560px] text-crema/[0.07] pointer-events-none" viewBox="0 0 560 560" fill="none" stroke="currentColor" aria-hidden="true">
+<circle cx="280" cy="280" r="70"/><circle cx="280" cy="280" r="110"/><circle cx="280" cy="280" r="150"/><circle cx="280" cy="280" r="190"/><circle cx="280" cy="280" r="230"/><circle cx="280" cy="280" r="270"/>
+</svg>
+<div class="relative max-w-3xl mx-auto">
+<h2 data-reveal class="font-menu text-5xl sm:text-6xl lg:text-7xl leading-[1.05]">Te esperamos en<br/>La Unión con Alamedas</h2>
+<p data-reveal class="mt-5 text-crema/65">Miércoles a lunes, de 6:00pm a 10:00pm. Martes cerrado por descanso.</p>
+<div data-reveal class="mt-8">
+<a href="https://wa.me/51907318885?text=Hola%20Frejolito%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener" class="inline-block px-8 py-4 min-h-[52px] rounded-full bg-chamoy hover:bg-birria text-white font-bold shadow-[0_10px_40px_-8px_rgba(217,30,42,.8)] transition hover:-translate-y-0.5">Pedir por WhatsApp</a>
 </div>
-<a href="https://wa.me/51907318885?text=Hola%20Frejolito%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener" class="shrink-0 px-8 py-4 rounded-full bg-wa text-noche font-bold shadow-2xl hover:scale-105 transition">Pedir al +51 907 318 885</a>
+<p data-reveal class="mt-4 text-sm text-crema/60">O escríbenos al <a class="underline underline-offset-4 hover:text-chamoyl" href="https://wa.me/51907318885" target="_blank" rel="noopener">+51 907 318 885</a></p>
 </div>
 </section>
 </main>
 
-<footer class="bg-black/60 border-t border-white/10 px-5 lg:px-10 pt-12 pb-8 text-sm">
-<div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
-<div class="flex items-center gap-3"><img src="./logo.png" alt="Logo El Frejolito" class="w-10 h-10 rounded-full object-cover bg-white ring-2 ring-chamoy/60"/><p class="font-display text-lg">EL FREJOLITO</p></div><p class="text-crema/60 mt-2 text-[13px]">Mexicana auténtica en Pucallpa. Birria, quesadillas, chamoyadas y dulces.</p></div>
-<div><p class="font-bold mb-2">Ubicación</p><p class="text-crema/60 text-[13px]">La Unión con Alamedas, Yarinacocha.</p><a class="text-mango text-[13px]" target="_blank" href="https://maps.app.goo.gl/ANJeAQ7se5evK2Cr7">Ver en Maps →</a></div>
-<div><p class="font-bold mb-2">Horario</p><p class="text-crema/60 text-[13px]">Mié–Lun 6pm–10pm<br/>Mar cerrado</p></div>
-<div><p class="font-bold mb-2">Contacto</p><p class="text-crema/60 text-[13px]">+51 907 318 885<br/>IG / TikTok: @el.frejolito</p></div>
+<footer class="bg-black/40 border-t border-white/10 px-5 lg:px-10 pt-16 pb-8 text-sm">
+<div class="max-w-7xl mx-auto grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+<div>
+<div class="flex items-center gap-3"><img src="./logo.png" alt="Logo El Frejolito" width="1060" height="992" loading="lazy" decoding="async" class="w-10 h-10 rounded-full object-cover bg-white ring-2 ring-chamoy/60"/><p class="font-display text-lg">EL FREJOLITO</p></div>
+<p class="text-crema/60 mt-3 text-[13px] leading-relaxed">Restaurante mexicano en Yarinacocha, Pucallpa. Birria, quesadillas, chamoyadas y dulces.</p>
+<nav class="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-[13px]" aria-label="Secciones">
+<a class="underline underline-offset-4 decoration-crema/30 hover:text-chamoyl" href="#la-tienda">Tienda</a>
+<a class="underline underline-offset-4 decoration-crema/30 hover:text-chamoyl" href="#carta">Carta</a>
+<a class="underline underline-offset-4 decoration-crema/30 hover:text-chamoyl" href="#opiniones">Opiniones</a>
+<a class="underline underline-offset-4 decoration-crema/30 hover:text-chamoyl" href="#visitanos">Visítanos</a>
+</nav>
 </div>
-<p class="max-w-7xl mx-auto mt-8 pt-6 border-t border-white/10 text-[11px] text-crema/40">© <span id="y"></span> El Frejolito · Pucallpa, Perú.</p>
+<div>
+<p class="text-[11px] font-bold tracking-[0.2em] uppercase text-crema/45">Visítanos</p>
+<p class="mt-3 text-crema/80 text-[13px] leading-relaxed">Última cuadra de La Unión con Alamedas<br/>Yarinacocha, Pucallpa</p>
+<a class="mt-3 inline-flex items-center gap-2 text-[13px] font-bold underline underline-offset-4 hover:text-chamoyl" href="https://maps.app.goo.gl/ANJeAQ7se5evK2Cr7" target="_blank" rel="noopener">
+<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+Cómo llegar</a>
+</div>
+<div>
+<p class="text-[11px] font-bold tracking-[0.2em] uppercase text-crema/45">Horario</p>
+<p class="mt-3 text-crema/80 text-[13px] leading-relaxed">Mié a Lun, 6:00pm – 10:00pm</p>
+<p class="mt-1 text-crema/60 text-[13px]">Cerrado los martes</p>
+</div>
+<div>
+<p class="text-[11px] font-bold tracking-[0.2em] uppercase text-crema/45">Contacto</p>
+<a class="mt-3 flex items-center gap-2 text-[13px] hover:text-chamoyl" href="https://wa.me/51907318885" target="_blank" rel="noopener">
+<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg>
++51 907 318 885</a>
+<a class="mt-2.5 flex items-center gap-2 text-[13px] underline underline-offset-4 decoration-crema/30 hover:text-chamoyl" href="https://www.instagram.com/el.frejolito/" target="_blank" rel="noopener">@el.frejolito en Instagram ↗</a>
+<a class="mt-2.5 flex items-center gap-2 text-[13px] underline underline-offset-4 decoration-crema/30 hover:text-chamoyl" href="https://www.tiktok.com/@el.frejolito" target="_blank" rel="noopener">@el.frejolito en TikTok ↗</a>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row gap-2 justify-between text-xs text-crema/40">
+<p>© <span id="y"></span> El Frejolito · Pucallpa, Perú.</p>
+<p>Mié a Lun · 6:00pm – 10:00pm</p>
+</div>
 </footer>
 
 <a href="https://wa.me/51907318885?text=%C2%A1Hola%20Frejolito!%20Quiero%20hacer%20un%20pedido" target="_blank" rel="noopener" aria-label="WhatsApp" class="wa-float fixed bottom-5 right-5 z-50 w-14 h-14 rounded-full bg-wa grid place-items-center text-noche text-2xl font-bold shadow-2xl">✆</a>

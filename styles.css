@@ -5,6 +5,11 @@ html.lenis,html.lenis body{height:auto}
 .lenis.lenis-smooth{scroll-behavior:auto!important}
 .font-display{font-family:'Rye','Lilita One',system-ui;letter-spacing:.02em;font-weight:400}
 .font-price{font-family:'Lilita One',system-ui;letter-spacing:.01em}
+.font-menu{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500}
+.menu-row{border-bottom:1px solid rgba(253,243,220,.12);transition:background .3s,padding .3s}
+.menu-row:hover{background:rgba(217,30,42,.06)}
+.menu-num{font-family:'Plus Jakarta Sans',system-ui;font-size:12px;font-weight:700;color:#FF7A7A;letter-spacing:.08em}
+.menu-link{text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(253,243,220,.35)}
 .hero-img{will-change:transform;transform:scale(1.12)}
 .glass{background:rgba(22,17,16,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 .card-dark{background:#1B1412;border:1px solid rgba(253,243,220,.09)}
@@ -20,6 +25,7 @@ html.lenis,html.lenis body{height:auto}
 .no-scrollbar{scrollbar-width:none}
 .tab-active{background:#D91E2A!important;color:#fff!important;border-color:#D91E2A!important}
 .chip{border:1px solid rgba(253,243,220,.16)}
+#grid{border-top:1px solid rgba(253,243,220,.12)}
 .vignette{background:radial-gradient(ellipse at center,transparent 0%,rgba(14,11,10,.72) 100%)}
 .text-stroke{-webkit-text-stroke:1px rgba(253,243,220,.35);color:transparent}
 @media (prefers-reduced-motion:reduce){.marquee-track,.wa-float,.scroll-hint{animation:none}[data-reveal]{opacity:1;transform:none}}

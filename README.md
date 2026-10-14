@@ -40,10 +40,13 @@ Decisiones clave: sitio 100% estático, sin `package.json` ni build — se publi
 ## Características principales
 
 - **Hero nocturno estilo Arko:** foto del local a pantalla completa con parallax al scroll (`yPercent: 14` con scrub), logo circular, titular en fuente western y doble CTA.
-- **Carta filtrable sin recargar:** 15 platos en 6 tabs (todos, tacos, quesadillas-nachos, alitas, chamoyadas-bebidas, dulces); al filtrar se refresca ScrollTrigger para no romper el scroll.
+- **Carta filtrable sin recargar:** 15 platos en 5 tabs (tacos, quesadillas-nachos, alitas, chamoyadas-bebidas, dulces), con Tacos como categoría inicial; al filtrar se refresca ScrollTrigger para no romper el scroll.
+- **Filas editoriales en la carta:** cada plato es una fila numerada con nombre en serif elegante (Cormorant Garamond), descripción debajo y línea separadora, con precio y Pedir a la derecha.
 - **Pedido por WhatsApp plato a plato:** cada tarjeta arma su mensaje (`quiero+Tacos+Birria+x3`); el botón flotante usa mensaje genérico de delivery.
 - **Identidad del local:** logo real `logo.png` en nav, hero, footer y favicon; display en `Rye` (la del rótulo en `logo con letra.png`), precios en `Lilita One`, cuerpo en `Plus Jakarta Sans`.
 - **Paleta de `design.md`:** crema `#FDF3DC`, noche `#0E0B0A`, rojo chamoy `#D91E2A`, mango `#FFB627`, guacamole `#5A9A3B`.
+- **Opiniones reales:** 3 reseñas de Google Maps con estrellas, inicial y enlace a ver todas.
+- **Accesibilidad aplicada:** textos chicos en `chamoyl` `#FF7A7A` (≥4.5:1 sobre noche), tabs y Pedir con 44px de toque, `loading="lazy"` fuera del hero y fallback `noscript`.
 - **SEO local y datos estructurados:** meta description, JSON-LD `Restaurant` con dirección, teléfono, horario y mapa.
 
 ## Stack tecnológico
@@ -55,7 +58,7 @@ Decisiones clave: sitio 100% estático, sin `package.json` ni build — se publi
 | Interacción | `app.js` (JS vanilla, sin build) | Render de carta, tabs, anclas |
 | Scroll suave | Lenis 1.1.14 (unpkg) | `lerp: .11`, integrado a `gsap.ticker` |
 | Animación | GSAP 3.12.5 + ScrollTrigger 3.12.5 (cdnjs) | Parallax hero y reveals `[data-reveal]` |
-| Tipografías | Google Fonts: Rye, Lilita One, Plus Jakarta Sans | Display, precios, cuerpo |
+| Tipografías | Google Fonts: Rye, Lilita One, Cormorant Garamond, Plus Jakarta Sans | Display, precios, filas de carta, cuerpo |
 | Datos | `design.md`, `carta.jpeg`, `FREJOLITO_dulces.pdf` | Fuente de paleta, precios y dulces |
 
 ## Arquitectura
@@ -127,7 +130,7 @@ Precios pendientes de validar con el local (ver `design.md`): Enchiladas Rojas (
 
 1. Estructura: `index.html` enlaza `./styles.css` y `./app.js`; no quedan bloques `<style>` ni `<script>` propios inline.
 2. Assets: las 5 fotos y `logo.png` responden 200 en el servidor local (verificado en log del 2026-10-14).
-3. Carta: 15 items en 6 categorías; cada tab muestra solo su grupo y el botón Pedir lleva el mensaje del plato.
+3. Carta: 15 items en 5 categorías (Tacos inicial); cada tab muestra solo su grupo y el botón Pedir lleva el mensaje del plato.
 4. Movimiento: scroll suave sin saltos, parallax del hero y reveals por sección; con `prefers-reduced-motion` la página queda estática y legible.
 5. Capturas: `img/hero.png` e `img/carta.png` tomadas del sitio corriendo en local a 1280px.
 
