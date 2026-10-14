@@ -10,15 +10,24 @@
 
 ## Capturas
 
-| Hero nocturno con logo y CTAs | Carta con filtros por categoría |
+Escritorio (1280px):
+
+| Hero nocturno con logo y CTAs | Carta con filas editoriales por categoría |
 |---|---|
-| ![Hero de El Frejolito con foto del local de noche, logo circular y botones Explorar la carta y Pedir por WhatsApp](img/hero.png) | ![Carta completa con tarjetas de platos, precios en soles y botón Pedir por WhatsApp](img/carta.png) |
+| ![Hero de El Frejolito con foto del local de noche, logo circular y botones Explorar la carta y Pedir por WhatsApp](img/hero.png) | ![Carta completa con filas numeradas en serif, precios en soles y Pedir por WhatsApp a la derecha](img/carta.png) |
+
+Móvil 440x956 (iPhone 16 Pro Max):
+
+| Hero en móvil | Carta en móvil |
+|---|---|
+| ![Hero de El Frejolito en pantalla de 440px con titular, CTAs y datos](img/hero-movil.png) | ![Carta completa en pantalla de 440px con tabs y filas de platos](img/carta-movil.png) |
 
 El cliente recorre la página, filtra la carta por categoría y pulsa Pedir: se abre WhatsApp con el mensaje ya armado. El dueño actualiza platos y precios editando el arreglo `ITEMS` en `app.js`.
 
 ## Tabla de contenidos
 
 - [Descripción](#descripción)
+- [Demo](#demo)
 - [Características principales](#características-principales)
 - [Stack tecnológico](#stack-tecnológico)
 - [Arquitectura](#arquitectura)
@@ -33,7 +42,14 @@ El cliente recorre la página, filtra la carta por categoría y pulsa Pedir: se 
 
 El Frejolito atiende de noche en Yarinacocha (Pucallpa) y recibe pedidos por WhatsApp al +51 907 318 885. Necesitaba una vitrina que muestre el local, los platos con foto real y la carta con precios en soles, sin carrito ni backend que mantener.
 
-La página resuelve eso con un solo `index.html` más `styles.css` y `app.js`: hero de pantalla completa con `local.jpg`, sección La tienda, 3 platos estrella con foto (`taco bel.jpg`, `chamoyada.jpg`, `varios platos en taper para pedidos.jpg`), carta filtrable por 6 categorías, ubicación con horario y enlace a Google Maps, CTA final y botón flotante de WhatsApp.
+La página resuelve eso con un solo `index.html` más `styles.css` y `app.js`: hero de pantalla completa con `local.jpg`, sección La tienda, 3 platos estrella con foto (`taco bel.jpg`, `chamoyada.jpg`, `varios platos en taper para pedidos.jpg`), carta filtrable por 5 categorías, 3 opiniones reales de Google Maps, ubicación con horario y enlace a Maps, cierre con titular serif y footer en 4 columnas, más botón flotante de WhatsApp.
+
+## Demo
+
+| Capa | URL |
+|---|---|
+| Producción (GitHub Pages) | https://teverde29.github.io/Pagina-web-Frejolito/ |
+| Repo | https://github.com/TeVerde29/Pagina-web-Frejolito |
 
 Decisiones clave: sitio 100% estático, sin `package.json` ni build — se publica tal cual. La carta vive en el arreglo `ITEMS` de `app.js`, no en un CMS: cada plato define categoría, nombre, precio, descripción, etiqueta y fragmento de mensaje. Cada botón Pedir construye una URL `https://wa.me/51907318885?text=...` con el plato precargado. El scroll suave usa Lenis 1.1.14 sincronizado al `ticker` de GSAP y los reveals usan ScrollTrigger; con `prefers-reduced-motion` todo el movimiento se desactiva.
 
@@ -46,6 +62,7 @@ Decisiones clave: sitio 100% estático, sin `package.json` ni build — se publi
 - **Identidad del local:** logo real `logo.png` en nav, hero, footer y favicon; display en `Rye` (la del rótulo en `logo con letra.png`), precios en `Lilita One`, cuerpo en `Plus Jakarta Sans`.
 - **Paleta de `design.md`:** crema `#FDF3DC`, noche `#0E0B0A`, rojo chamoy `#D91E2A`, mango `#FFB627`, guacamole `#5A9A3B`.
 - **Opiniones reales:** 3 reseñas de Google Maps con estrellas, inicial y enlace a ver todas.
+- **Cierre estilo Arko:** titular serif centrado, pill de WhatsApp, motivo de círculos concéntricos y footer en 4 columnas (marca, visítanos, horario, contacto).
 - **Accesibilidad aplicada:** textos chicos en `chamoyl` `#FF7A7A` (≥4.5:1 sobre noche), tabs y Pedir con 44px de toque, `loading="lazy"` fuera del hero y fallback `noscript`.
 - **SEO local y datos estructurados:** meta description, JSON-LD `Restaurant` con dirección, teléfono, horario y mapa.
 
@@ -106,7 +123,7 @@ Flujo básico de uso:
 | Navegador | Chrome, Edge, Firefox o Safari actual (CSS moderno + `backdrop-filter`) |
 | Conexión | Internet activo para CDN y Google Fonts |
 | Servidor local | Python 3 (`http.server`) o cualquier estático (Live Server, `npx serve`) |
-| Pantalla | Responsive desde 360px; capturas tomadas a 1280px |
+| Pantalla | Responsive desde 360px; capturas desktop a 1280px y móvil a 440x956 |
 
 ## Carta y formato del pedido
 
@@ -132,12 +149,12 @@ Precios pendientes de validar con el local (ver `design.md`): Enchiladas Rojas (
 2. Assets: las 5 fotos y `logo.png` responden 200 en el servidor local (verificado en log del 2026-10-14).
 3. Carta: 15 items en 5 categorías (Tacos inicial); cada tab muestra solo su grupo y el botón Pedir lleva el mensaje del plato.
 4. Movimiento: scroll suave sin saltos, parallax del hero y reveals por sección; con `prefers-reduced-motion` la página queda estática y legible.
-5. Capturas: `img/hero.png` e `img/carta.png` tomadas del sitio corriendo en local a 1280px.
+5. Capturas: `img/hero.png` e `img/carta.png` a 1280px y `img/hero-movil.png` e `img/carta-movil.png` a 440x956, tomadas del sitio corriendo en local.
 
 ## Notas de deploy
 
 1. Es un sitio estático: basta servir la carpeta tal cual (GitHub Pages, Netlify, Cloudflare Pages).
-2. GitHub Pages aún no está activo: `https://teverde29.github.io/Pagina-web-Frejolito/` devuelve 404 (verificado 2026-10-14). Para activarlo: Settings → Pages → Deploy from branch → `main` / root.
+2. GitHub Pages activo en `https://teverde29.github.io/Pagina-web-Frejolito/` (verificado 200 el 2026-10-14, rama `main` / root).
 3. Los nombres de archivo con espacios funcionan codificados, pero renombrarlos (ej. `taco-bel.jpg`) evita errores al mover de hosting.
 
 ---
