@@ -42,7 +42,7 @@ El cliente recorre la página, filtra la carta por categoría y pulsa Pedir: se 
 
 El Frejolito atiende de noche en Yarinacocha (Pucallpa) y recibe pedidos por WhatsApp al +51 907 318 885. Necesitaba una vitrina que muestre el local, los platos con foto real y la carta con precios en soles, sin carrito ni backend que mantener.
 
-La página resuelve eso con un solo `index.html` más `styles.css` y `app.js`: hero de pantalla completa con `img/webp/local.webp` (`srcset` 800/1271), sección La tienda, 3 platos estrella con foto (`taco-birria.webp`, `taco-bell.webp`, `enchilada.webp`), carta filtrable por 5 categorías con foto fantasma de fondo por plato, 3 opiniones reales de Google Maps, mapa vivo embebido con horario y enlace a Maps, cierre con titular serif y footer en 4 columnas, menú hamburguesa en móvil, más botón flotante de WhatsApp.
+La página resuelve eso con un solo `index.html` más `styles.css` y `app.js`: hero de pantalla completa con `img/webp/local.webp` (`srcset` 800/1271), sección La tienda, 3 platos estrella con foto (`taco-birria.webp`, `taco-bell.webp`, `enchilada.webp`), carta filtrable por 6 categorías con foto fantasma de fondo por plato, 3 opiniones reales de Google Maps, mapa vivo embebido con horario y enlace a Maps, cierre con titular serif y footer en 4 columnas, menú hamburguesa en móvil, más botón flotante de WhatsApp.
 
 ## Demo
 
@@ -56,7 +56,7 @@ Decisiones clave: sitio 100% estático, sin `package.json` ni build — se publi
 ## Características principales
 
 - **Hero nocturno estilo Arko:** foto del local a pantalla completa en WebP con `srcset` y `preload`, parallax al scroll (`yPercent: 14` con scrub), logo circular, titular fluido en `clamp()` con fuente western y doble CTA.
-- **Carta filtrable sin recargar:** 15 platos en 5 tabs accesibles por teclado (flechas, `aria-selected`), con Tacos como categoría inicial; al filtrar se refresca ScrollTrigger para no romper el scroll.
+- **Carta filtrable sin recargar:** 21 platos en 6 tabs accesibles por teclado (flechas, `aria-selected`), con Tacos como categoría inicial; al filtrar se refresca ScrollTrigger para no romper el scroll.
 - **Filas editoriales con foto fantasma:** cada plato con foto real lleva su imagen de fondo difuminada desde el texto (máscara CSS, `height:100%` para no sangrar filas); filas sin foto quedan limpias. Nombre en serif (Georgia local), precio con `tabular-nums` y Pedir a la derecha con aire (`pr-4/sm:pr-6`).
 - **Pedido por WhatsApp plato a plato:** cada tarjeta arma su mensaje (`quiero+Tacos+Birria+x3`); el botón flotante usa mensaje genérico de delivery con el glyph oficial de WhatsApp.
 - **Botones con hover invertido:** familia `.btn-wa` (verde), `.btn-carta` (chamoy), `.btn-gps` (mango) y `.btn-ghost` (crema): sólido en reposo, transparente delineado en hover, press a 100ms.
@@ -146,7 +146,7 @@ Precios pendientes de validar con el local (ver `design.md`): Enchiladas Rojas (
 
 1. Estructura: `index.html` enlaza `./styles.css` y `./app.js`; no quedan bloques `<style>` ni `<script>` propios inline; balance de tags verificado por parser.
 2. Assets: los 14 WebP de `img/webp/` + `index.html` responden 200 en el servidor local; el HTML no referencia ningún JPG/PNG.
-3. Carta: 15 items en 5 categorías (Tacos inicial); cada tab muestra solo su grupo, el botón Pedir lleva el mensaje del plato y las filas con foto llevan fondo fantasma confinado (`height:100%`).
+3. Carta: 21 items en 6 categorías (Tacos inicial); cada tab muestra solo su grupo, el botón Pedir lleva el mensaje del plato y las filas con foto llevan fondo fantasma confinado (`height:100%`).
 4. Movimiento: scroll suave sin saltos, parallax del hero y reveals con scrub por sección; con `prefers-reduced-motion` la página queda estática y legible; marquee y pulso se pausan fuera de viewport.
 5. Capturas: `img/hero.png` e `img/carta.png` a 1280px y `img/hero-movil.png` e `img/carta-movil.png` a 440x956, tomadas del sitio corriendo en local.
 

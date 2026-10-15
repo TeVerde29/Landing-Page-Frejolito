@@ -51,11 +51,11 @@ Regla: fondo noche 100% (sitio oscuro), acentos rojo/mango/verde. Transparencias
 
 ## 5. Secciones (orden real)
 
-1. **Nav fija** (`#nav`, `z-50`): logo + links (Tienda/Platos/Carta/Opiniones/Visítanos, `aria-label="Principal"`) + pill `btn-wa`. Fondo `glass` que se oscurece al scrollear.
+1. **Nav fija** (`#nav`, `z-50`): logo + links (Tienda/Platos/Carta/Opiniones/Visítanos, `aria-label="Principal"`) en desktop, hamburguesa con panel en móvil. Fondo `glass` que se oscurece al scrollear.
 2. **Hero** (`#inicio`, `min-h-[100svh]`): foto `local.webp` con `srcset` 800/1600 + parallax (`yPercent:14`), overlay noche + viñeta + velo chamoy; logo, titular Rye "Sabor mexicano en Pucallpa", doble CTA (`btn-carta` / `btn-wa`), stats 2×2 en móvil, marquee mango (pausa en hover/focus, duplicado `aria-hidden`), hint que se elimina al primer scroll.
 3. **La tienda** (`#la-tienda`): foto + tarjeta glass superpuesta + badge guac + 3 bullets (`card-dark`).
 4. **Favoritos** (`#platos`): 3 cards con foto real (Birria / Chamoyada / Bell), badge, precio mango, link Pedir 44px.
-5. **Carta** (`#carta`): 5 tabs (`role=tablist`, flechas/Home/End, `aria-selected`) + 15 filas editoriales numeradas (nombre serif, descripción, precio mango, Pedir→WhatsApp) + enlace a foto de carta original. Estado vacío con salida a WhatsApp.
+5. **Carta** (`#carta`): 6 tabs (Tacos, Especialidades, Alitas, Chamoyadas, Bebidas frías, Calientes) con `role=tablist`, flechas/Home/End, `aria-selected` + 21 filas editoriales numeradas (nombre serif, descripción, precio mango, Pedir→WhatsApp) + enlace a foto de carta original. Estado vacío con salida a WhatsApp.
 6. **Opiniones** (`#opiniones`): 3 reseñas Google Maps con estrellas SVG (`sr-only` + `aria-hidden`) + link a Maps.
 7. **Visítanos** (`#visitanos`): dirección + horario en cards + `btn-gps` / `btn-ghost` + tarjeta foto con pill "Hoy 6–10pm".
 8. **Cierre**: titular serif centrado, pill `btn-wa`, motivo de círculos concéntricos, footer en 4 columnas (marca, visítanos, horario, contacto con iconos SVG teléfono/IG/TikTok).
