@@ -42,7 +42,7 @@ El cliente recorre la página, filtra la carta por categoría y pulsa Pedir: se 
 
 El Frejolito atiende de noche en Yarinacocha (Pucallpa) y recibe pedidos por WhatsApp al +51 907 318 885. Necesitaba una vitrina que muestre el local, los platos con foto real y la carta con precios en soles, sin carrito ni backend que mantener.
 
-La página resuelve eso con un solo `index.html` más `styles.css` y `app.js`: hero de pantalla completa con `img/webp/local.webp` (`srcset` 800/1271), sección La tienda, 3 platos estrella con foto (`taco-birria.webp`, `taco-bell.webp`, `enchilada.webp`), carta filtrable por 6 categorías con foto fantasma de fondo por plato, 3 opiniones reales de Google Maps, mapa vivo embebido con horario y enlace a Maps, cierre con titular serif y footer en 4 columnas, menú hamburguesa en móvil, más botón flotante de WhatsApp.
+La página resuelve eso con un solo `index.html` más `styles.css` y `app.js`: hero de pantalla completa con `img/webp/local.webp` (`srcset` 800/1271), sección La tienda, 3 platos estrella con foto (`taco-birria.webp`, `pedido.webp`, `enchilada.webp`), carta filtrable por 6 categorías con foto fantasma de fondo por plato, 3 opiniones reales de Google Maps, mapa vivo embebido con horario y enlace a Maps, cierre con titular serif y footer en 4 columnas, menú hamburguesa en móvil, más botón flotante de WhatsApp.
 
 ## Demo
 
@@ -91,8 +91,8 @@ Landing-Page-Frejolito/
 ├── app.js       # Carta (ITEMS + render + tabs con teclado) y motion (Lenis + GSAP + anclas + nav + menú móvil)
 ├── design.md    # Sistema de diseño v2: estado real del landing
 ├── img/                 # Capturas del README (hero.png, carta.png...) + originales/ + webp/
-├── img/originales/      # 14 fuentes: local.jpg, local-2.jpg, taco-birria.jpg, taco-bell.png, enchilada.jpg, quesadilla.jpg, cremas.jpg, tacos-burrito.jpg, alitas.jpeg, chamoyada-mango.jpg, pedido.jpg, carta.jpeg, logo.png...
-├── img/webp/            # 14 generados (no editar a mano): local.webp, local-800.webp, local-2.webp, taco-birria.webp, taco-bell.webp, enchilada.webp, ...
+├── img/originales/      # 14 fuentes: local.jpg, local-2.jpg, taco-birria.jpg, taco-tradicional.png, enchilada.jpg, quesadilla.jpg, cremas.jpg, tacos-enchilada.jpg, alitas.jpeg, chamoyada-mango.jpg, pedido.jpg, carta.jpg, logo.png...
+├── img/webp/            # 14 generados (no editar a mano): local.webp, local-800.webp, local-2.webp, taco-birria.webp, taco-tradicional.webp, enchilada.webp, ...
 └── FREJOLITO_dulces.pdf     # Carta de dulces mexicanos
 ```
 

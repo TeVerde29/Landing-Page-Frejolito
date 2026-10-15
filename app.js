@@ -3,13 +3,13 @@ document.getElementById('y').textContent = new Date().getFullYear();
 const WA = 'https://wa.me/51907318885?text=';
 const ITEMS = [
  {c:'tacos',t:'Tacos Birria x3',p:'S/28',d:'Adobo birria, carne jugosa, queso fundido + consomé.',tag:'Más pedido',m:'quiero+Tacos+Birria+x3',img:'./img/webp/taco-birria.webp'},
- {c:'tacos',t:'Tacos Tradicionales',p:'S/14–20',d:'Carne o pollo, lechuga, tomate, guacamole, crema, cebolla caramelizada. 2x S/14 / 3x S/20.',tag:'Clásico',m:'quiero+Tacos+Tradicionales'},
- {c:'tacos',t:'Tacos Bell x3',p:'S/24',d:'Tacos crocantes con bastante queso y sus cremas. Carne o pollo.',tag:'Crocante',m:'quiero+Tacos+Bell',img:'./img/webp/taco-bell.webp'},
+ {c:'tacos',t:'Tacos Tradicionales',p:'S/14–20',d:'Carne o pollo, lechuga, tomate, guacamole, crema, cebolla caramelizada. 2x S/14 / 3x S/20.',tag:'Clásico',m:'quiero+Tacos+Tradicionales',img:'./img/webp/taco-tradicional.webp'},
+ {c:'tacos',t:'Tacos Bell x3',p:'S/24',d:'Tacos crocantes con bastante queso y sus cremas. Carne o pollo.',tag:'Crocante',m:'quiero+Tacos+Bell'},
  {c:'espe',t:'Enchiladas Rojas x2',p:'S/18',d:'Base de tomate y tortillas, queso derretido bañado con crema y salsa roja.',tag:'Salsa casera',m:'quiero+Enchiladas+Rojas',img:'./img/webp/enchilada.webp'},
  {c:'espe',t:'Quesadillas',p:'S/16',d:'Pollito con chilli y quesito crocante en plancha (guacamole, crema, salsa roja).',tag:'Favorito',m:'quiero+Quesadillas',img:'./img/webp/quesadilla.webp'},
  {c:'espe',t:'Nachos',p:'S/28',d:'Nachos, carne, cheddar, guacamole, salsa blanca, salsa mexicana y jalapeños cortados.',tag:'Para compartir',m:'quiero+Nachos'},
  {c:'tacos',t:'Taquitos x2',p:'S/16',d:'Crocante y jugosa carne, queso horneado.',tag:'Crocantes',m:'quiero+Taquitos'},
- {c:'espe',t:'Burrito',p:'S/38',d:'Pollito con chilli y quesito crocante en plancha (guacamole, crema, salsa roja).',tag:'Gigante',m:'quiero+Burrito',img:'./img/webp/tacos-burrito.webp'},
+ {c:'espe',t:'Burrito',p:'S/38',d:'Pollito con chilli y quesito crocante en plancha (guacamole, crema, salsa roja).',tag:'Gigante',m:'quiero+Burrito'},
  {c:'alitas',t:'Alita BBQ x6',p:'S/21',d:'Incluye papas crocantes.',tag:'Con papas',m:'quiero+Alitas+BBQ',img:'./img/webp/alitas.webp'},
  {c:'alitas',t:'Alita Acevichada x6',p:'S/21',d:'Incluye papas crocantes.',tag:'Con papas',m:'quiero+Alitas+Acevichada',img:'./img/webp/alitas.webp'},
  {c:'alitas',t:'Alita Búfalo x6',p:'S/21',d:'Incluye papas crocantes.',tag:'Picante',m:'quiero+Alitas+Bufalo',img:'./img/webp/alitas.webp'},
@@ -18,19 +18,19 @@ const ITEMS = [
  {c:'chamoy',t:'Mango Enchilado',p:'S/14',d:'Mango, tajín, chamoy, takis, limón.',tag:'Botana',m:'quiero+Mango+enchilado'},
  {c:'frias',t:'Frappés',p:'S/10–12',d:'Moca, café, fresa, Oreo, menta o chocolate.',tag:'6 sabores',m:'quiero+Frappe'},
  {c:'frias',t:'Néctar',p:'S/3',d:'Cocona o chicha.',tag:'Típico',m:'quiero+Nectar'},
- {c:'frias',t:'Gaseosas',p:'S/3–9',d:'Coca Cola e Inka Cola. Personal plástico S/4.50, personal vidrio S/3, grande vidrio S/9.',tag:'Heladas',m:'quiero+Gaseosa'},
+ {c:'frias',t:'Gaseosas',p:'S/3–9',d:'Coca Cola e Inka Cola. Personal plástico S/4.50, personal vidrio S/3, grande vidrio S/9.',tag:'Heladas',m:'quiero+Gaseosa',img:'./img/webp/coca-cola-vidrio.webp'},
  {c:'frias',t:'Refrescos y Frozen',p:'S/10–15',d:'Cocona y maracuyá S/10. Limonada frozen y frozen de cocona/maracuyá S/14. Horchata S/15.',tag:'Natural',m:'quiero+Refresco'},
- {c:'frias',t:'Heineken',p:'S/10',d:'Cerveza helada.',tag:'Helada',m:'quiero+Heineken'},
- {c:'calientes',t:'Café',p:'S/3',d:'Café pasado.',tag:'Caliente',m:'quiero+Cafe'},
- {c:'calientes',t:'Tés',p:'S/2',d:'Mora, manzanilla, anís o canela y clavo.',tag:'Caliente',m:'quiero+Te'},
+ {c:'frias',t:'Heineken',p:'S/10',d:'Cerveza helada.',tag:'Helada',m:'quiero+Heineken',img:'./img/webp/heineken.webp'},
+ {c:'calientes',t:'Café',p:'S/3',d:'Café pasado.',tag:'Caliente',m:'quiero+Cafe',img:'./img/webp/cafe.webp'},
+ {c:'calientes',t:'Tés',p:'S/2',d:'Mora, manzanilla, anís o canela y clavo.',tag:'Caliente',m:'quiero+Te',img:'./img/webp/te-manzanilla.webp'},
 ];
 const grid = document.getElementById('grid');
 function renderBase(cat){
  const list = ITEMS.filter(i=>i.c===cat);
  grid.innerHTML = list.length ? list.map((i,n)=>`
- <article class="menu-row group relative flex items-baseline gap-4 sm:gap-6 py-6 sm:py-7">
+ <article class="menu-row group relative flex items-baseline gap-4 sm:gap-6 py-6 sm:py-7 min-h-[128px]">
  <span class="menu-num shrink-0 w-7">${String(n+1).padStart(2,'0')}</span>
- ${i.img?`<img src="${i.img}" alt="" aria-hidden="true" loading="lazy" decoding="async" class="menu-bg"/>`:''}
+ ${i.img?`<img src="${i.img}" alt="" aria-hidden="true" loading="lazy" decoding="async" class="menu-bg"${i.bw?` style="width:${i.bw}"`:''}/>`:''}
  <div class="relative flex-1 min-w-0">
  <h3 class="font-menu text-2xl sm:text-[32px] leading-tight group-hover:translate-x-1 transition-transform">${i.t}</h3>
  <p class="text-[13px] sm:text-sm text-crema/75 mt-1">${i.d}</p>
