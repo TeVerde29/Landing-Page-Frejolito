@@ -81,10 +81,18 @@ try{
   if(lenis) lenis.on('scroll',ScrollTrigger.update);
   gsap.to('.hero-img',{yPercent:14,ease:'none',scrollTrigger:{trigger:'#inicio',start:'top top',end:'bottom top',scrub:true}});
   gsap.utils.toArray('[data-reveal]').forEach(el=>{
-   gsap.to(el,{opacity:1,y:0,duration:.6,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%'}});
+   gsap.fromTo(el,{opacity:0,y:34},{opacity:1,y:0,ease:'none',scrollTrigger:{trigger:el,start:'top 94%',end:'top 55%',scrub:.6}});
   });
  } else { document.querySelectorAll('[data-reveal]').forEach(el=>{el.style.opacity=1;el.style.transform='none'}) }
 }catch(e){document.querySelectorAll('[data-reveal]').forEach(el=>{el.style.opacity=1;el.style.transform='none'})}
 const nav=document.getElementById('nav');
 addEventListener('scroll',()=>{nav.style.transform='translateY(0)';nav.firstElementChild.style.background = scrollY>40?'color-mix(in srgb,var(--noche) 92%,transparent)':'color-mix(in srgb,var(--carbon) 82%,transparent)'},{passive:true});
 addEventListener('scroll',()=>{const h=document.querySelector('.scroll-hint');if(h){h.style.transition='opacity .4s';h.style.opacity='0';setTimeout(()=>h.remove(),500)}},{passive:true,once:true});
+try{
+ const pausables=[...document.querySelectorAll('.marquee-track,.wa-float')];
+ if('IntersectionObserver' in window){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{e.target.style.animationPlayState=e.isIntersecting?'':'paused'}),{threshold:0});
+  pausables.forEach(el=>io.observe(el));
+ }
+ document.addEventListener('visibilitychange',()=>{pausables.forEach(el=>{el.style.animationPlayState=document.hidden?'paused':''})});
+}catch(e){}

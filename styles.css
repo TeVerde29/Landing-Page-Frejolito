@@ -3,7 +3,7 @@ html{background:var(--noche);scroll-behavior:auto}
 body{background:var(--noche);color:var(--crema);font-family:'Plus Jakarta Sans',system-ui;line-height:1.6;overflow-x:hidden}
 html.lenis,html.lenis body{height:auto}
 .lenis.lenis-smooth{scroll-behavior:auto!important}
-.font-display{font-family:'Rye','Lilita One',system-ui;letter-spacing:.02em;font-weight:400}
+.font-display{font-family:'Rye','Lilita One',system-ui;letter-spacing:-.01em;font-weight:400}
 .font-price{font-family:'Lilita One',system-ui;letter-spacing:.01em;font-variant-numeric:tabular-nums}
 .font-menu{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500}
 .menu-row{border-bottom:1px solid color-mix(in srgb,var(--crema) 12%,transparent);transition:background .3s,padding .3s}
@@ -29,7 +29,7 @@ html.lenis,html.lenis body{height:auto}
 .tab-active{background:var(--chamoy)!important;color:#fff!important;border-color:var(--chamoy)!important}
 .chip{border:1px solid color-mix(in srgb,var(--crema) 16%,transparent)}
 #grid{border-top:1px solid color-mix(in srgb,var(--crema) 12%,transparent)}
-a[class*="rounded-full"]:active{transform:scale(.97)}
+a[class*="rounded-full"]:active{transform:scale(.97);transition:transform 100ms ease-out}
 .btn-wa{background:var(--wa);color:var(--noche);border:2px solid transparent;box-shadow:0 10px 40px -8px color-mix(in srgb,var(--wa) 70%,transparent);transition:background .3s,color .3s,border-color .3s,transform .3s}
 .btn-wa:hover{background:transparent;color:var(--wa);border-color:var(--wa)}
 .btn-carta{background:var(--chamoy);color:#fff;border:2px solid transparent;box-shadow:0 10px 40px -8px color-mix(in srgb,var(--chamoy) 70%,transparent);transition:background .3s,color .3s,border-color .3s,transform .3s}
@@ -46,4 +46,5 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--mango);outline-offs
 .wa-float{bottom:calc(1.25rem + env(safe-area-inset-bottom));right:calc(1.25rem + env(safe-area-inset-right))}
 section[id]{scroll-margin-top:80px}
 .text-stroke{-webkit-text-stroke:1px color-mix(in srgb,var(--crema) 35%,transparent);color:transparent}
+@media (prefers-reduced-transparency:reduce){.glass{background:var(--noche);backdrop-filter:none;-webkit-backdrop-filter:none}}
 @media (prefers-reduced-motion:reduce){.marquee-track,.wa-float,.scroll-hint{animation:none}.menu-bg{transition:none}[data-reveal]{opacity:1;transform:none}}
