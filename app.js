@@ -2,17 +2,17 @@ document.getElementById('y').textContent = new Date().getFullYear();
 // Carta desde design.md
 const WA = 'https://wa.me/51907318885?text=';
 const ITEMS = [
- {c:'tacos',t:'Tacos Birria x3',p:'S/28',d:'Adobo birria, carne jugosa, queso fundido + consomé. x2 a S/14.',tag:'Más pedido',m:'quiero+Tacos+Birria+x3'},
- {c:'tacos',t:'Tacos Bell x3',p:'S/20',d:'Res o pollo, lechuga, queso y salsa casera.',tag:'Res o Pollo',m:'quiero+Tacos+Bell'},
+ {c:'tacos',t:'Tacos Birria x3',p:'S/28',d:'Adobo birria, carne jugosa, queso fundido + consomé. x2 a S/14.',tag:'Más pedido',m:'quiero+Tacos+Birria+x3',img:'./img/webp/taco-birria.webp'},
+ {c:'tacos',t:'Tacos Bell x3',p:'S/20',d:'Res o pollo, lechuga, queso y salsa casera.',tag:'Res o Pollo',m:'quiero+Tacos+Bell',img:'./img/webp/taco-bell.webp'},
  {c:'tacos',t:'Tacos Bell crocante queso',p:'S/24',d:'Costra de queso a la plancha, guacamole y pico de gallo.',tag:'Costra especial',m:'quiero+Tacos+Bell+crocante'},
- {c:'tacos',t:'Enchiladas rojas x2',p:'S/18',d:'Salsa de chiles secos, crema, queso y cebolla.',tag:'Salsa casera',m:'quiero+Enchiladas+Rojas'},
+ {c:'tacos',t:'Enchiladas rojas x2',p:'S/18',d:'Salsa de chiles secos, crema, queso y cebolla.',tag:'Salsa casera',m:'quiero+Enchiladas+Rojas',img:'./img/webp/enchilada.webp'},
  {c:'tacos',t:'Taquitos crocantes x2',p:'S/16',d:'Flautas doradas + guacamole y crema.',tag:'Crocantes',m:'quiero+Taquitos'},
- {c:'quesa',t:'Quesadillas de la casa',p:'S/16',d:'Queso fundido, pollo chilli, guacamole, crema y salsa roja.',tag:'Favorito',m:'quiero+Quesadillas'},
+ {c:'quesa',t:'Quesadillas de la casa',p:'S/16',d:'Queso fundido, pollo chilli, guacamole, crema y salsa roja.',tag:'Favorito',m:'quiero+Quesadillas',img:'./img/webp/quesadilla.webp'},
  {c:'quesa',t:'Nachos supremos',p:'S/28',d:'Totopos, carne, cheddar, guacamole, crema y jalapeños. 2-3 pers.',tag:'Para compartir',m:'quiero+Nachos'},
- {c:'quesa',t:'Burrito al grill',p:'S/38',d:'Trigo sellado, pollo chilli, frijoles, guacamole y salsa.',tag:'Gigante',m:'quiero+Burrito'},
- {c:'alitas',t:'Alitas x6 + papas',p:'S/21',d:'BBQ / Acevichada / Búfalo picante.',tag:'3 salsas',m:'quiero+Alitas+x6'},
- {c:'bebidas',t:'Chamoyada fresa o mango',p:'S/16–21',d:'Fruta natural, tajín, chamoy, gomita y tarri pop. 16oz/20oz.',tag:'Helada',m:'quiero+Chamoyada'},
- {c:'bebidas',t:'Mango enchilado + Takis',p:'S/14',d:'Mango, chamoy, tajín, limón y Takis.',tag:'Botana',m:'quiero+Mango+enchilado'},
+ {c:'quesa',t:'Burrito al grill',p:'S/38',d:'Trigo sellado, pollo chilli, frijoles, guacamole y salsa.',tag:'Gigante',m:'quiero+Burrito',img:'./img/webp/tacos-burrito.webp'},
+ {c:'alitas',t:'Alitas x6 + papas',p:'S/21',d:'BBQ / Acevichada / Búfalo picante.',tag:'3 salsas',m:'quiero+Alitas+x6',img:'./img/webp/alitas.webp'},
+ {c:'bebidas',t:'Chamoyada fresa o mango',p:'S/16–21',d:'Fruta natural, tajín, chamoy, gomita y tarri pop. 16oz/20oz.',tag:'Helada',m:'quiero+Chamoyada',img:'./img/webp/chamoyada-mango.webp'},
+ {c:'bebidas',t:'Mango enchilado + Takis',p:'S/14',d:'Mango, chamoy, tajín, limón y Takis.',tag:'Botana',m:'quiero+Mango+enchilado',img:'./img/webp/chamoyada-mango.webp'},
  {c:'bebidas',t:'Frappés',p:'S/12',d:'Moca, café, fresa, Oreo, menta o chocolate.',tag:'6 sabores',m:'quiero+Frappe'},
  {c:'bebidas',t:'Horchata / Cocona / Maracuyá',p:'S/10–15',d:'Horchata S/15. Jarras S/10. Heineken S/10.',tag:'Típico',m:'quiero+bebida'},
  {c:'dulces',t:'Gomitas enchiladas',p:'S/5–8',d:'Chamoy y miguelito. 25g S/5 / 50g S/8 / 400g S/55.',tag:'Importado',m:'quiero+Gomitas+enchiladas'},
@@ -22,13 +22,14 @@ const grid = document.getElementById('grid');
 function renderBase(cat){
  const list = ITEMS.filter(i=>i.c===cat);
  grid.innerHTML = list.length ? list.map((i,n)=>`
- <article class="menu-row group flex items-baseline gap-4 sm:gap-6 py-6 sm:py-7">
+ <article class="menu-row group relative flex items-baseline gap-4 sm:gap-6 py-6 sm:py-7">
  <span class="menu-num shrink-0 w-7">${String(n+1).padStart(2,'0')}</span>
- <div class="flex-1 min-w-0">
+ ${i.img?`<img src="${i.img}" alt="" aria-hidden="true" loading="lazy" decoding="async" class="menu-bg"/>`:''}
+ <div class="relative flex-1 min-w-0">
  <h3 class="font-menu text-2xl sm:text-[32px] leading-tight group-hover:translate-x-1 transition-transform">${i.t}</h3>
  <p class="text-[13px] sm:text-sm text-crema/75 mt-1">${i.d}</p>
  </div>
- <div class="shrink-0 text-right">
+ <div class="relative shrink-0 text-right pr-4 sm:pr-6">
  <p class="font-price text-lg text-mango whitespace-nowrap">${i.p}</p>
  <a class="menu-link text-[13px] font-bold text-crema/80 hover:text-chamoyl inline-flex items-center min-h-[44px] min-w-[44px] px-3 -mr-3" target="_blank" rel="noopener" href="${WA}Hola%20Frejolito%2C%20${i.m}">Pedir &#8599;</a>
  </div></article>`).join('') : `<p class="py-10 text-center text-sm text-crema/75">Sin platos en esta categoría por ahora — escríbenos por WhatsApp y te contamos qué hay hoy.</p>`;

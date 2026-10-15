@@ -10,6 +10,8 @@ html.lenis,html.lenis body{height:auto}
 .menu-row:hover{background:color-mix(in srgb,var(--chamoy) 6%,transparent)}
 .menu-num{font-family:'Plus Jakarta Sans',system-ui;font-size:12px;font-weight:700;color:var(--chamoyl);letter-spacing:.08em}
 .menu-link{text-decoration:underline;text-underline-offset:4px;text-decoration-color:color-mix(in srgb,var(--crema) 35%,transparent)}
+.menu-bg{position:absolute;top:0;right:0;height:100%;width:60%;object-fit:cover;opacity:.35;pointer-events:none;-webkit-mask-image:linear-gradient(to right,transparent,#000 45%);mask-image:linear-gradient(to right,transparent,#000 45%);transition:opacity .5s}
+.group:hover .menu-bg{opacity:.5}
 .hero-img{will-change:transform;transform:scale(1.12)}
 .glass{background:color-mix(in srgb,var(--carbon) 82%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 .card-dark{background:var(--card);border:1px solid color-mix(in srgb,var(--crema) 9%,transparent)}
@@ -44,4 +46,4 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--mango);outline-offs
 .wa-float{bottom:calc(1.25rem + env(safe-area-inset-bottom));right:calc(1.25rem + env(safe-area-inset-right))}
 section[id]{scroll-margin-top:80px}
 .text-stroke{-webkit-text-stroke:1px color-mix(in srgb,var(--crema) 35%,transparent);color:transparent}
-@media (prefers-reduced-motion:reduce){.marquee-track,.wa-float,.scroll-hint{animation:none}[data-reveal]{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.marquee-track,.wa-float,.scroll-hint{animation:none}.menu-bg{transition:none}[data-reveal]{opacity:1;transform:none}}
