@@ -86,13 +86,15 @@ Pagina-web-Frejolito/
 ├── styles.css   # CSS propio: variables, glass, card-dark, marquee, wa-float, reveals
 ├── app.js       # Carta (ITEMS + render + tabs) y motion (Lenis + GSAP + anclas + nav)
 ├── design.md    # Sistema de diseño: paleta, tipografías, carta transcrita, plan de secciones
-├── img/         # Capturas del README: hero.png, carta.png
-├── logo.png                 # Logo circular (nav, hero, footer, favicon)
-├── logo con letra.png       # Referencia del lockup horizontal y la fuente western
-├── local.jpg                # Foto del local de noche (hero y ubicación)
-├── taco bel.jpg             # Foto tacos birria (plato estrella)
-├── chamoyada.jpg            # Foto chamoyada de mango (plato estrella)
-├── varios platos en taper para pedidos.jpg  # Foto combos (plato estrella)
+├── img/                 # Capturas del README (hero.png, carta.png...) + `originales/` (JPG/PNG fuente) + `webp/` (versiones optimizadas que usa el sitio)
+├── img/originales/      # Fuentes: local.jpg, taco-bel.jpg, chamoyada.jpg, combos-taper.jpg, alitas.jpeg, logo.png, carta.jpeg...
+├── img/webp/            # Generados (no editar a mano): local.webp, local-800.webp, taco-bel.webp, ..., alitas.webp
+├── logo.png                 # (movido a img/originales/) Logo circular
+├── logo con letra.png       # (movido a img/originales/) Referencia del lockup horizontal
+├── local.jpg                # (movido a img/originales/) Foto del local de noche
+├── taco bel.jpg             # (renombrado a taco-bel.jpg → img/originales/) Foto tacos birria
+├── chamoyada.jpg            # (movido a img/originales/) Foto chamoyada de mango
+├── varios platos en taper para pedidos.jpg  # (renombrado a combos-taper.jpg → img/originales/) Foto combos
 ├── carta.jpeg               # Foto de la carta física (transcrita en design.md)
 └── FREJOLITO_dulces.pdf     # Carta de dulces mexicanos
 ```

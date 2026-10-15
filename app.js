@@ -21,28 +21,27 @@ const ITEMS = [
 const grid = document.getElementById('grid');
 function renderBase(cat){
  const list = ITEMS.filter(i=>i.c===cat);
- grid.innerHTML = list.map((i,n)=>`
+ grid.innerHTML = list.length ? list.map((i,n)=>`
  <article class="menu-row group flex items-baseline gap-4 sm:gap-6 py-6 sm:py-7">
  <span class="menu-num shrink-0 w-7">${String(n+1).padStart(2,'0')}</span>
  <div class="flex-1 min-w-0">
  <h3 class="font-menu text-2xl sm:text-[32px] leading-tight group-hover:translate-x-1 transition-transform">${i.t}</h3>
- <p class="text-[13px] sm:text-sm text-crema/55 mt-1">${i.d}</p>
+ <p class="text-[13px] sm:text-sm text-crema/75 mt-1">${i.d}</p>
  </div>
  <div class="shrink-0 text-right">
  <p class="font-price text-lg text-mango whitespace-nowrap">${i.p}</p>
- <a class="menu-link text-[13px] font-bold text-crema/80 hover:text-chamoyl inline-block px-3 py-2.5 -mr-3" target="_blank" rel="noopener" href="${WA}Hola%20Frejolito%2C%20${i.m}">Pedir &#8599;</a>
- </div></article>`).join('');
- if(window.gsap) gsap.fromTo('#grid article',{y:18,opacity:0},{y:0,opacity:1,duration:.45,stagger:.06,ease:'power2.out',overwrite:true});
+ <a class="menu-link text-[13px] font-bold text-crema/80 hover:text-chamoyl inline-flex items-center min-h-[44px] min-w-[44px] px-3 -mr-3" target="_blank" rel="noopener" href="${WA}Hola%20Frejolito%2C%20${i.m}">Pedir &#8599;</a>
+ </div></article>`).join('') : `<p class="py-10 text-center text-sm text-crema/75">Sin platos en esta categoría por ahora — escríbenos por WhatsApp y te contamos qué hay hoy.</p>`;
+ if(window.gsap) gsap.fromTo('#grid article',{y:18,opacity:0},{y:0,opacity:1,duration:.45,stagger:.045,ease:'power2.out',overwrite:true});
 }
 function render(cat){
  renderBase(cat);
  if(window.ScrollTrigger) requestAnimationFrame(()=>ScrollTrigger.refresh());
 }
 render('tacos');
-document.querySelectorAll('#tabs button').forEach(b=>b.addEventListener('click',()=>{
- document.querySelectorAll('#tabs button').forEach(x=>x.classList.remove('tab-active'));
- b.classList.add('tab-active'); render(b.dataset.cat);
-}));
+const tabs=[...document.querySelectorAll('#tabs button')];
+function selectTab(b){tabs.forEach(x=>{x.classList.remove('tab-active');x.setAttribute('aria-selected','false');x.tabIndex=-1});b.classList.add('tab-active');b.setAttribute('aria-selected','true');b.tabIndex=0;render(b.dataset.cat)}
+tabs.forEach((b,i)=>{b.addEventListener('click',()=>selectTab(b));b.addEventListener('keydown',e=>{let j=null;if(e.key==='ArrowRight')j=(i+1)%tabs.length;if(e.key==='ArrowLeft')j=(i-1+tabs.length)%tabs.length;if(e.key==='Home')j=0;if(e.key==='End')j=tabs.length-1;if(j!==null){e.preventDefault();tabs[j].focus();selectTab(tabs[j])}})});
 // Motion tipo Arko: Lenis + GSAP sincronizados
 let lenis=null;
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -61,7 +60,8 @@ try{
 }catch(e){lenis=null}
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
  const id=a.getAttribute('href'); if(id.length>1){e.preventDefault(); const el=document.querySelector(id); if(!el) return;
- if(lenis) lenis.scrollTo(el,{offset:-64,duration:1.2}); else el.scrollIntoView({behavior:'smooth'});}
+ const focusIt=()=>el.focus({preventScroll:true});
+ if(lenis){lenis.scrollTo(el,{offset:-80,duration:1.2});setTimeout(focusIt,1250)}else{el.scrollIntoView({behavior:reduced?'auto':'smooth'});setTimeout(focusIt,400)}}
 }));
 // si la URL trae hash (#carta), saltar tras el layout
 if(location.hash){
@@ -80,9 +80,10 @@ try{
   if(lenis) lenis.on('scroll',ScrollTrigger.update);
   gsap.to('.hero-img',{yPercent:14,ease:'none',scrollTrigger:{trigger:'#inicio',start:'top top',end:'bottom top',scrub:true}});
   gsap.utils.toArray('[data-reveal]').forEach(el=>{
-   gsap.to(el,{opacity:1,y:0,duration:.9,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%'}});
+   gsap.to(el,{opacity:1,y:0,duration:.6,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%'}});
   });
  } else { document.querySelectorAll('[data-reveal]').forEach(el=>{el.style.opacity=1;el.style.transform='none'}) }
 }catch(e){document.querySelectorAll('[data-reveal]').forEach(el=>{el.style.opacity=1;el.style.transform='none'})}
 const nav=document.getElementById('nav');
-addEventListener('scroll',()=>{nav.style.transform='translateY(0)';nav.firstElementChild.style.background = scrollY>40?'rgba(14,11,10,.92)':'rgba(22,17,16,.62)'},{passive:true});
+addEventListener('scroll',()=>{nav.style.transform='translateY(0)';nav.firstElementChild.style.background = scrollY>40?'color-mix(in srgb,var(--noche) 92%,transparent)':'color-mix(in srgb,var(--carbon) 82%,transparent)'},{passive:true});
+addEventListener('scroll',()=>{const h=document.querySelector('.scroll-hint');if(h){h.style.transition='opacity .4s';h.style.opacity='0';setTimeout(()=>h.remove(),500)}},{passive:true,once:true});
