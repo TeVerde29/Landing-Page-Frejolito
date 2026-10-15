@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdnjs.cloudflare.com"><link rel="preconnect" href="https://unpkg.com">
 <link rel="icon" type="image/webp" href="./img/webp/logo.webp"/>
-<link rel="preload" as="image" imagesrcset="./img/webp/local-800.webp 800w, ./img/webp/local.webp 1600w" imagesizes="100vw" fetchpriority="high"/>
+<link rel="preload" as="image" imagesrcset="./img/webp/local-800.webp 800w, ./img/webp/local.webp 1271w" imagesizes="100vw" fetchpriority="high"/>
 <link href="https://fonts.googleapis.com/css2?family=Rye&family=Lilita+One&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
@@ -48,6 +48,17 @@ tailwind.config = {
 <a href="#opiniones" class="hover:text-crema">Opiniones</a>
 <a href="#visitanos" class="hover:text-crema">Visítanos</a>
 </nav>
+<button id="menuBtn" class="md:hidden grid place-items-center w-11 h-11 -mr-2 rounded-full" aria-expanded="false" aria-controls="mobileMenu" aria-label="Abrir menú"><span aria-hidden="true"><span></span><span></span><span></span></span></button>
+</div>
+</div>
+<div id="mobileMenu" class="md:hidden glass border-b border-white/10" hidden>
+<div><nav class="px-5 py-3 flex flex-col" aria-label="Móvil">
+<a href="#la-tienda" class="font-display text-xl py-2.5 min-h-[44px] flex items-center border-b border-white/5">Tienda</a>
+<a href="#platos" class="font-display text-xl py-2.5 min-h-[44px] flex items-center border-b border-white/5">Platos</a>
+<a href="#carta" class="font-display text-xl py-2.5 min-h-[44px] flex items-center border-b border-white/5">Carta</a>
+<a href="#opiniones" class="font-display text-xl py-2.5 min-h-[44px] flex items-center border-b border-white/5">Opiniones</a>
+<a href="#visitanos" class="font-display text-xl py-2.5 min-h-[44px] flex items-center">Visítanos</a>
+</nav></div>
 </div>
 </div>
 </header>
@@ -56,7 +67,7 @@ tailwind.config = {
 <!-- HERO fullscreen estilo Arko ScrollWorld -->
 <section class="relative min-h-[100svh] flex flex-col justify-end overflow-hidden">
 <div class="absolute inset-0">
-<img src="./img/webp/local.webp" srcset="./img/webp/local-800.webp 800w, ./img/webp/local.webp 1600w" sizes="100vw" alt="Fachada El Frejolito de noche en Pucallpa" width="1600" height="1200" fetchpriority="high" decoding="async" class="hero-img w-full h-full object-cover"/>
+<img src="./img/webp/local-800.webp" srcset="./img/webp/local-800.webp 800w, ./img/webp/local.webp 1271w" sizes="100vw" alt="Fachada El Frejolito de noche en Pucallpa" width="800" height="629" fetchpriority="high" decoding="async" class="hero-img w-full h-full object-cover object-center sm:object-top"/>
 <div class="absolute inset-0 bg-gradient-to-t from-noche via-noche/70 to-noche/40"></div>
 <div class="absolute inset-0 vignette"></div>
 <div class="absolute inset-0 bg-chamoy/10 mix-blend-overlay"></div>
